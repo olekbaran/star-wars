@@ -1,0 +1,19 @@
+{
+  "name": "Star Wars",
+  "short_name": "Star Wars",
+  "description": "Star Wars Database with SWAPI",
+  "icons": [
+    {
+      "src": "/images/google-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "background_color": "#000000",
+  "theme_color": "#D9D9D9",
+  "start_url": "/",
+  "orientation": "portrait",
+  "display": "standalone",
+  "dir": "ltr"
+}

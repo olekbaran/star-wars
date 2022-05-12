@@ -1,0 +1,9 @@
+.history
+src/vite-env.d.ts
+node_modules
+build
+dist
+dist-ssr
+yarn.lock
+package-lock.json
+public
