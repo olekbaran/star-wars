@@ -1,5 +1,5 @@
 import React from 'react';
 
 export function App() {
-  return <div>Star Wars</div>
+  return <div>Star Wars</div>;
 }
