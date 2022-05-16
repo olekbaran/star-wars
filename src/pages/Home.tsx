@@ -25,13 +25,7 @@ export const Home = () => (
     padding={4}
     style={styles.paperContainer}
   >
-    <Typography
-      variant="h2"
-      component="h1"
-      color="primary.main"
-      fontWeight={700}
-      textAlign="center"
-    >
+    <Typography variant="h2" component="h1">
       STAR WARS
     </Typography>
     <Box
@@ -42,41 +36,27 @@ export const Home = () => (
       gap={6}
     >
       <Box>
-        <Typography
-          variant="overline"
-          component="p"
-          color="primary.main"
-          textAlign="center"
-        >
+        <Typography variant="overline" component="p">
           All the Star Wars data you have ever wanted:
         </Typography>
         <Typography
           variant="overline"
           component="p"
-          color="primary.main"
           fontSize={14}
           fontWeight={700}
-          textAlign="center"
         >
           Planets, Spaceships, Vehicles, People, Films and Species
         </Typography>
       </Box>
       <Box>
-        <Typography
-          variant="overline"
-          component="p"
-          color="primary.main"
-          textAlign="center"
-        >
+        <Typography variant="overline" component="p">
           From all SEVEN Star Wars films
         </Typography>
         <Typography
           variant="overline"
           component="p"
-          color="primary.main"
           fontSize={14}
           fontWeight={700}
-          textAlign="center"
         >
           May the Force be with you!
         </Typography>

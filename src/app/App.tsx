@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
+import { Helmet } from 'react-helmet';
 
 import { appRoutes } from 'app';
 import { theme } from 'theme';
@@ -20,6 +21,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 export const App = () => (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
+      <Helmet>
+        <title>Star Wars</title>
+        <meta property="og:title" content="Star Wars" />
+        <meta property="twitter:title" content="Star Wars" />
+      </Helmet>
       <CssBaseline />
       <MainLayout>
         <Routes>

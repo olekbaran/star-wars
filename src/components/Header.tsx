@@ -27,9 +27,7 @@ export const Header = () => (
             component="p"
             noWrap
             color="secondary"
-            sx={{
-              fontWeight: 700,
-            }}
+            fontWeight={700}
           >
             STAR WARS
           </Typography>

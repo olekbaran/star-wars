@@ -1,5 +1,5 @@
-import backgroundHome from './background-home.png';
-import background404 from './background-404.png';
+import backgroundHome from './background-home.jpg';
+import background404 from './background-404.jpg';
 
 export const images = {
   backgroundHome,

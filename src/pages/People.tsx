@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -12,13 +13,12 @@ export const People = () => (
     minHeight="calc(100vh - 4rem)"
     padding={4}
   >
-    <Typography
-      variant="h2"
-      component="h1"
-      color="primary.main"
-      fontWeight={700}
-      textAlign="center"
-    >
+    <Helmet>
+      <title>People | Star Wars</title>
+      <meta property="og:title" content="People | Star Wars" />
+      <meta property="twitter:title" content="People | Star Wars" />
+    </Helmet>
+    <Typography variant="h2" component="h1">
       People
     </Typography>
   </Box>

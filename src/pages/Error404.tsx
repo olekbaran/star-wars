@@ -36,20 +36,10 @@ export const Error404 = () => (
       gap={4}
       flexWrap="wrap"
     >
-      <Typography
-        variant="h2"
-        component="h1"
-        fontWeight={700}
-        color="primary.main"
-      >
+      <Typography variant="h2" component="h1">
         404
       </Typography>
-      <Typography
-        variant="h6"
-        component="h2"
-        fontWeight={300}
-        color="primary.main"
-      >
+      <Typography variant="h6" component="h2">
         You are in a galaxy far, far away…
       </Typography>
     </Box>

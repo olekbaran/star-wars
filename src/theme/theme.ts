@@ -15,4 +15,16 @@ export const theme = createTheme({
       main: '#0D0D0D',
     },
   },
+  typography: {
+    allVariants: {
+      textAlign: 'center',
+      color: '#A6A6A6',
+    },
+    h2: {
+      fontWeight: 700,
+    },
+    h6: {
+      fontWeight: 300,
+    },
+  },
 });
