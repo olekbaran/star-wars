@@ -1,6 +1,8 @@
 export { Home } from './Home';
 export { Films } from './Films';
+export { Film } from './Film';
 export { People } from './People';
+export { Planets } from './Planets';
 export { Species } from './Species';
 export { Starships } from './Starships';
 export { Vehicles } from './Vehicles';

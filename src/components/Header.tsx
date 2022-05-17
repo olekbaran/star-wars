@@ -15,7 +15,7 @@ export const Header = () => (
       <Toolbar
         disableGutters
         sx={{
-          justifyContent: 'space-evenly',
+          justifyContent: { xs: 'space-between', md: 'space-evenly' },
         }}
       >
         <Link

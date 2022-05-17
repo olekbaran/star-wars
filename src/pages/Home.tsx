@@ -22,7 +22,7 @@ export const Home = () => (
     alignItems="center"
     gap={6}
     minHeight="calc(100vh - 4rem)"
-    padding={4}
+    padding={8}
     style={styles.paperContainer}
   >
     <Typography variant="h2" component="h1">

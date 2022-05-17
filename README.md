@@ -31,12 +31,13 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 ### Other scripts
-| yarn | command |
-| :------: | :-----: |
-| dev    | vite |
-| build    | tsc && vite build |
-| preview    | vite preview |
-| check-types    | tsc --pretty --noEmit |
-| check-format    | prettier --check . |
-| check-lint    | eslint . --ext ts --ext tsx --ext js |
-| format    | prettier --write . |
+
+|     yarn     |               command                |
+| :----------: | :----------------------------------: |
+|     dev      |                 vite                 |
+|    build     |          tsc && vite build           |
+|   preview    |             vite preview             |
+| check-types  |        tsc --pretty --noEmit         |
+| check-format |          prettier --check .          |
+|  check-lint  | eslint . --ext ts --ext tsx --ext js |
+|    format    |          prettier --write .          |

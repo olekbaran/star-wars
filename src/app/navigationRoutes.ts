@@ -14,6 +14,10 @@ export const navigationRoutes = [
     slug: appRoutes.people.slug,
   },
   {
+    name: appRoutes.planets.name,
+    slug: appRoutes.planets.slug,
+  },
+  {
     name: appRoutes.species.name,
     slug: appRoutes.species.slug,
   },

@@ -4,7 +4,7 @@ import { HelmetProvider, Helmet } from 'react-helmet-async';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-export const Starships = () => (
+export const Planets = () => (
   <Box
     display="flex"
     flexDirection="column"
@@ -15,13 +15,13 @@ export const Starships = () => (
   >
     <HelmetProvider>
       <Helmet>
-        <title>Starships | Star Wars</title>
-        <meta property="og:title" content="Starships | Star Wars" />
-        <meta property="twitter:title" content="Starships | Star Wars" />
+        <title>Planets | Star Wars</title>
+        <meta property="og:title" content="Planets | Star Wars" />
+        <meta property="twitter:title" content="Planets | Star Wars" />
       </Helmet>
     </HelmetProvider>
     <Typography variant="h2" component="h1">
-      Starships
+      Planets
     </Typography>
   </Box>
 );

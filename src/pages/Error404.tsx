@@ -26,7 +26,7 @@ export const Error404 = () => (
     alignItems="center"
     gap={6}
     minHeight="calc(100vh - 4rem)"
-    padding={4}
+    padding={8}
     style={styles.paperContainer}
   >
     <Box

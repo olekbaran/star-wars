@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -11,13 +11,15 @@ export const Species = () => (
     justifyContent="center"
     alignItems="center"
     minHeight="calc(100vh - 4rem)"
-    padding={4}
+    padding={8}
   >
-    <Helmet>
-      <title>Species | Star Wars</title>
-      <meta property="og:title" content="Species | Star Wars" />
-      <meta property="twitter:title" content="Species | Star Wars" />
-    </Helmet>
+    <HelmetProvider>
+      <Helmet>
+        <title>Species | Star Wars</title>
+        <meta property="og:title" content="Species | Star Wars" />
+        <meta property="twitter:title" content="Species | Star Wars" />
+      </Helmet>
+    </HelmetProvider>
     <Typography variant="h2" component="h1">
       Species
     </Typography>

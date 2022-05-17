@@ -7,9 +7,17 @@ export const appRoutes = {
     name: 'Films',
     slug: '/films',
   },
+  film: {
+    name: 'Film',
+    slug: '/films/:id',
+  },
   people: {
     name: 'People',
     slug: '/people',
+  },
+  planets: {
+    name: 'Planets',
+    slug: '/planets',
   },
   species: {
     name: 'Species',
