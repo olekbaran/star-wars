@@ -3,14 +3,14 @@ import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { AxiosError } from 'axios';
 
 import { getFilms } from 'services';
-import { FilmCard } from 'components';
+import { LayoutInput } from 'components';
+import { FilmRowCardLayout, FilmTableLayout } from 'components/films';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
 
 interface filmType {
   title: string;
@@ -54,6 +54,22 @@ export const Films = () => {
     filmsData();
   }, []);
 
+  const [layout, setLayout] = useState('row');
+
+  useEffect(() => {
+    if (
+      localStorage.getItem('layout') &&
+      localStorage.getItem('layout') !== null
+    ) {
+      setLayout(localStorage.getItem('layout')!);
+    }
+  });
+
+  const handleChange = (event: string) => {
+    setLayout(event);
+    localStorage.setItem('layout', `${event}`);
+  };
+
   const styles = {
     paperContainer: {
       background:
@@ -67,10 +83,10 @@ export const Films = () => {
       flexDirection="column"
       alignItems="center"
       minHeight="calc(100vh - 4rem)"
-      padding={8}
       sx={{
         justifyContent:
           loading === false && showError === false ? 'flex-start' : 'center',
+        padding: { xs: '1rem', md: '4rem' },
       }}
       style={styles.paperContainer}
     >
@@ -90,22 +106,16 @@ export const Films = () => {
         ''
       )}
       {loading === false && showError === false ? (
-        <Container>
+        <Container maxWidth="xl">
           <Typography variant="h2" component="h1">
             Films
           </Typography>
-          <Stack
-            direction="row"
-            justifyContent="center"
-            alignItems="flex-start"
-            flexWrap="wrap"
-            gap={8}
-            mt={8}
-          >
-            {films.map((film) => (
-              <FilmCard key={film.episode_id} film={film} />
-            ))}
-          </Stack>
+          <LayoutInput value={layout} onChangeFunc={handleChange} />
+          {layout !== 'table' ? (
+            <FilmRowCardLayout layout={layout} data={films} />
+          ) : (
+            <FilmTableLayout data={films} />
+          )}
         </Container>
       ) : (
         ''
