@@ -88,44 +88,47 @@ export const Film = () => {
       ) : (
         ''
       )}
-      {loading === false && showError === false && film === null ? (
-        <Alert severity="warning" variant="filled">
-          No data
-        </Alert>
-      ) : (
-        ''
-      )}
-      {loading === false && showError === false && film !== null ? (
-        <Container>
-          <HelmetProvider>
-            <Helmet>
-              <title>{`${film?.title} | Star Wars`}</title>
-              <meta
-                property="og:title"
-                content={`${film?.title} | Star Wars`}
-              />
-              <meta
-                property="twitter:title"
-                content={`${film?.title} | Star Wars`}
-              />
-            </Helmet>
-          </HelmetProvider>
-          <Typography variant="h2" textAlign="left">
-            {film?.episode_id}.
-          </Typography>
-          <Typography variant="h2" component="h1" mt={8} textAlign="left">
-            {film?.title}
-          </Typography>
-          <Typography variant="h5" mt={8} textAlign="left">
-            {film?.release_date}
-          </Typography>
-          <Typography mt={8} textAlign="left">
-            {film?.opening_crawl}
-          </Typography>
-          <Typography mt={8} gutterBottom textAlign="left">
-            Director: {film?.director}
-          </Typography>
-          <Typography textAlign="left">Producer: {film?.producer}</Typography>
+      {loading === false && showError === false ? (
+        <Container maxWidth="xl">
+          {film === null ? (
+            <Alert severity="warning" variant="filled">
+              No data
+            </Alert>
+          ) : (
+            <>
+              <HelmetProvider>
+                <Helmet>
+                  <title>{`${film?.title} | Star Wars`}</title>
+                  <meta
+                    property="og:title"
+                    content={`${film?.title} | Star Wars`}
+                  />
+                  <meta
+                    property="twitter:title"
+                    content={`${film?.title} | Star Wars`}
+                  />
+                </Helmet>
+              </HelmetProvider>
+              <Typography variant="h2" textAlign="left">
+                {film?.episode_id}.
+              </Typography>
+              <Typography variant="h2" component="h1" mt={8} textAlign="left">
+                {film?.title}
+              </Typography>
+              <Typography variant="h5" mt={8} textAlign="left">
+                {film?.release_date}
+              </Typography>
+              <Typography mt={8} textAlign="left" maxWidth="60rem">
+                {film?.opening_crawl}
+              </Typography>
+              <Typography mt={8} gutterBottom textAlign="left">
+                Director: {film?.director}
+              </Typography>
+              <Typography textAlign="left">
+                Producer: {film?.producer}
+              </Typography>
+            </>
+          )}
         </Container>
       ) : (
         ''
