@@ -57,7 +57,11 @@ export const People = () => {
   const [layout, setLayout] = useState<IlocalLayout | null>('row');
 
   useEffect(() => {
-    setLayout(localStorage.getItem('layout') as IlocalLayout);
+    if (!localStorage.getItem('layout')) {
+      setLayout('row');
+    } else {
+      setLayout(localStorage.getItem('layout') as IlocalLayout);
+    }
   }, []);
 
   const handleChange = (event: IlocalLayout) => {
