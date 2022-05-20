@@ -1,16 +1,18 @@
 import React from 'react';
 
+import { IlocalLayout } from 'types';
+
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 
-interface LayoutInputProps {
-  value: string;
-  onChangeFunc: (arg: string) => void;
+interface IlayoutInput {
+  value: IlocalLayout | null;
+  onChangeFunc: (arg: IlocalLayout) => void;
 }
 
-export const LayoutInput: React.FunctionComponent<LayoutInputProps> = ({
+export const LayoutInput: React.FunctionComponent<IlayoutInput> = ({
   value,
   onChangeFunc,
 }) => (
@@ -31,7 +33,7 @@ export const LayoutInput: React.FunctionComponent<LayoutInputProps> = ({
         textAlign: 'left',
       }}
       value={value}
-      onChange={(e) => onChangeFunc(e.target.value)}
+      onChange={(e) => onChangeFunc(e.target.value as IlocalLayout)}
     >
       <MenuItem
         value="row"

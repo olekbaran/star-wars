@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { FilmTableElement } from 'components/films';
+import { Iperson } from 'types';
+import { PeopleTableElement } from 'components/people';
 
 import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
@@ -10,28 +11,11 @@ import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 
-interface filmType {
-  title: string;
-  episode_id: number;
-  opening_crawl: string;
-  director: string;
-  producer: string;
-  release_date: string;
-  species: string[];
-  starships: string[];
-  vehicles: string[];
-  characters: string[];
-  planets: string[];
-  url: string;
-  created: string;
-  edited: string;
+interface ItableLayout {
+  data: Iperson[];
 }
 
-type TableLayoutProps = {
-  data: filmType[];
-};
-
-export const FilmTableLayout: React.FunctionComponent<TableLayoutProps> = ({
+export const PeopleTableLayout: React.FunctionComponent<ItableLayout> = ({
   data,
 }) => (
   <TableContainer>
@@ -54,7 +38,7 @@ export const FilmTableLayout: React.FunctionComponent<TableLayoutProps> = ({
               fontSize="1.2rem"
               color="secondary.main"
             >
-              Episode
+              Name
             </Typography>
           </TableCell>
           <TableCell>
@@ -63,7 +47,7 @@ export const FilmTableLayout: React.FunctionComponent<TableLayoutProps> = ({
               fontSize="1.2rem"
               color="secondary.main"
             >
-              Title
+              Birth year
             </Typography>
           </TableCell>
           <TableCell>
@@ -72,7 +56,7 @@ export const FilmTableLayout: React.FunctionComponent<TableLayoutProps> = ({
               fontSize="1.2rem"
               color="secondary.main"
             >
-              Director
+              Hair color
             </Typography>
           </TableCell>
           <TableCell>
@@ -81,7 +65,7 @@ export const FilmTableLayout: React.FunctionComponent<TableLayoutProps> = ({
               fontSize="1.2rem"
               color="secondary.main"
             >
-              Producer
+              Eye color
             </Typography>
           </TableCell>
           <TableCell>
@@ -96,8 +80,8 @@ export const FilmTableLayout: React.FunctionComponent<TableLayoutProps> = ({
         </TableRow>
       </TableHead>
       <TableBody>
-        {data.map((film) => (
-          <FilmTableElement key={film.episode_id} film={film} />
+        {data.map((person) => (
+          <PeopleTableElement key={person.name} person={person} />
         ))}
       </TableBody>
     </Table>

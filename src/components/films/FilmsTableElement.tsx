@@ -1,33 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { Ifilm } from 'types';
+
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-interface filmType {
-  title: string;
-  episode_id: number;
-  opening_crawl: string;
-  director: string;
-  producer: string;
-  release_date: string;
-  species: string[];
-  starships: string[];
-  vehicles: string[];
-  characters: string[];
-  planets: string[];
-  url: string;
-  created: string;
-  edited: string;
+interface ItableElement {
+  film: Ifilm;
 }
 
-type TableElementProps = {
-  film: filmType;
-};
-
-export const FilmTableElement: React.FunctionComponent<TableElementProps> = ({
+export const FilmsTableElement: React.FunctionComponent<ItableElement> = ({
   film,
 }) => {
   const slug = new URL(film.url).pathname.replace('/api', '').slice(0, -1);

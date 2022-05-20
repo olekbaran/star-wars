@@ -1,37 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { IlocalLayout, Iperson } from 'types';
+
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-interface filmData {
-  title: string;
-  episode_id: number;
-  opening_crawl: string;
-  director: string;
-  producer: string;
-  release_date: string;
-  species: string[];
-  starships: string[];
-  vehicles: string[];
-  characters: string[];
-  planets: string[];
-  url: string;
-  created: string;
-  edited: string;
+interface IpersonCard {
+  person: Iperson;
+  layout: IlocalLayout | null;
 }
 
-type filmCardProps = {
-  film: filmData;
-  layout: string;
-};
-
-export const FilmRowCard: React.FunctionComponent<filmCardProps> = ({
-  film,
+export const PersonCard: React.FunctionComponent<IpersonCard> = ({
+  person,
   layout,
 }) => {
-  const slug = new URL(film.url).pathname.replace('/api', '').slice(0, -1);
+  const slug = new URL(person.url).pathname.replace('/api', '').slice(0, -1);
 
   return (
     <Box
@@ -39,7 +24,7 @@ export const FilmRowCard: React.FunctionComponent<filmCardProps> = ({
       flexDirection="column"
       justifyContent="space-between"
       alignItems="flex-start"
-      minHeight="28rem"
+      minHeight="30rem"
       gap={4}
       border={1}
       borderRadius={4}
@@ -57,14 +42,14 @@ export const FilmRowCard: React.FunctionComponent<filmCardProps> = ({
         padding: { xs: '2rem', md: '4rem' },
       }}
     >
-      <Typography fontSize="3rem" fontWeight={700}>
-        {film.episode_id}.
+      <Typography textAlign="left" fontSize="2.2rem" fontWeight={700}>
+        {person.name}
       </Typography>
       <Typography textAlign="left" fontSize="1.2rem" fontWeight={700}>
-        {film.title}
+        {person.birth_year}
       </Typography>
-      <Typography textAlign="left">Director: {film.director}</Typography>
-      <Typography textAlign="left">Producer: {film.producer}</Typography>
+      <Typography textAlign="left">Hair color: {person.hair_color}</Typography>
+      <Typography textAlign="left">Eye color: {person.eye_color}</Typography>
       <Link to={slug} style={{ textDecoration: 'none' }}>
         <Button variant="contained">Check out more</Button>
       </Link>

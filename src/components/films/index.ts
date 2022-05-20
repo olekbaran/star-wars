@@ -1,4 +1,4 @@
-export { FilmRowCardLayout } from './FilmRowCardLayout';
-export { FilmRowCard } from './FilmRowCard';
-export { FilmTableLayout } from './FilmTableLayout';
-export { FilmTableElement } from './FilmTableElement';
+export { FilmsRowColLayout } from './FilmsRowColLayout';
+export { FilmCard } from './FilmCard';
+export { FilmsTableLayout } from './FilmsTableLayout';
+export { FilmsTableElement } from './FilmsTableElement';

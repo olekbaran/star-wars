@@ -4,13 +4,11 @@ import { Header } from 'components';
 
 import Box from '@mui/material/Box';
 
-type mainLayout = {
-  children: JSX.Element;
-};
+interface Ilayout {
+  children: React.ReactNode;
+}
 
-export const MainLayout: React.FunctionComponent<mainLayout> = ({
-  children,
-}) => (
+export const MainLayout: React.FunctionComponent<Ilayout> = ({ children }) => (
   <Box minHeight="calc(100vh - 4rem)">
     <Header />
     <Box marginTop={8}>{children}</Box>
