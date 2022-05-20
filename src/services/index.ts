@@ -1,3 +1,3 @@
 export { api } from './api';
-export { getFilms } from './getFilms';
-export { getFilmById } from './getFilmById';
+export { getFilms, getFilmById } from './getFilms';
+export { getPeople } from './getPeople';

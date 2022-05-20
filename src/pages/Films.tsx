@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { AxiosError } from 'axios';
+import { useSearchParams } from 'react-router-dom';
 
 import { getFilms } from 'services';
-import { LayoutInput } from 'components';
-import { FilmRowCardLayout, FilmTableLayout } from 'components/films';
+import { Ifilm, IlocalLayout } from 'types';
+import { LayoutInput, Pagination } from 'components';
+import { FilmsRowColLayout, FilmsTableLayout } from 'components/films';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -12,36 +14,34 @@ import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 import Alert from '@mui/material/Alert';
 
-interface filmType {
-  title: string;
-  episode_id: number;
-  opening_crawl: string;
-  director: string;
-  producer: string;
-  release_date: string;
-  species: string[];
-  starships: string[];
-  vehicles: string[];
-  characters: string[];
-  planets: string[];
-  url: string;
-  created: string;
-  edited: string;
-}
-
 export const Films = () => {
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [films, setFilms] = useState<filmType[]>([]);
+  const [films, setFilms] = useState<Ifilm[]>([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [prevPage, setPrevPage] = useState<string | null>(null);
+  const [nextPage, setNextPage] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<string | null>('1');
 
   useEffect(() => {
     setLoading(true);
     setShowError(false);
     const filmsData = async () => {
       try {
-        const res = await getFilms();
+        let paramsPage = null;
+        if (searchParams.get('page') !== null) {
+          setCurrentPage(searchParams.get('page'));
+          paramsPage = searchParams.get('page');
+        }
+        const res = await getFilms(paramsPage);
         setFilms(res.results);
+        setPrevPage(
+          res.previous ? new URL(res.previous).searchParams.get('page') : null
+        );
+        setNextPage(
+          res.next ? new URL(res.next).searchParams.get('page') : null
+        );
       } catch (errors) {
         setShowError(true);
         const error = errors as Error | AxiosError;
@@ -52,20 +52,15 @@ export const Films = () => {
     };
 
     filmsData();
-  }, []);
+  }, [searchParams.get('page')]);
 
-  const [layout, setLayout] = useState('row');
+  const [layout, setLayout] = useState<IlocalLayout>('row');
 
   useEffect(() => {
-    if (
-      localStorage.getItem('layout') &&
-      localStorage.getItem('layout') !== null
-    ) {
-      setLayout(localStorage.getItem('layout')!);
-    }
-  });
+    setLayout(localStorage.getItem('layout') as IlocalLayout);
+  }, []);
 
-  const handleChange = (event: string) => {
+  const handleChange = (event: IlocalLayout) => {
     setLayout(event);
     localStorage.setItem('layout', `${event}`);
   };
@@ -112,9 +107,19 @@ export const Films = () => {
           </Typography>
           <LayoutInput value={layout} onChangeFunc={handleChange} />
           {layout !== 'table' ? (
-            <FilmRowCardLayout layout={layout} data={films} />
+            <FilmsRowColLayout layout={layout} data={films} />
           ) : (
-            <FilmTableLayout data={films} />
+            <FilmsTableLayout data={films} />
+          )}
+          {prevPage || nextPage ? (
+            <Pagination
+              currentPage={currentPage}
+              prevPage={prevPage}
+              nextPage={nextPage}
+              setParams={setSearchParams}
+            />
+          ) : (
+            ''
           )}
         </Container>
       ) : (

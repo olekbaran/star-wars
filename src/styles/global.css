@@ -5,3 +5,11 @@
 .MuiOutlinedInput-notchedOutline {
   border-color: #a6a6a6 !important;
 }
+
+.MuiPaginationItem-text {
+  color: #a6a6a6 !important;
+}
+
+.Mui-selected {
+  color: #0d0d0d !important;
+}

@@ -4,6 +4,7 @@ import { AxiosError } from 'axios';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 import { getFilmById } from 'services';
+import { Ifilm } from 'types';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -11,30 +12,13 @@ import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 import Alert from '@mui/material/Alert';
 
-interface filmType {
-  title: string;
-  episode_id: number;
-  opening_crawl: string;
-  director: string;
-  producer: string;
-  release_date: string;
-  species: string[];
-  starships: string[];
-  vehicles: string[];
-  characters: string[];
-  planets: string[];
-  url: string;
-  created: string;
-  edited: string;
-}
-
 export const Film = () => {
   const { id } = useParams();
 
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [film, setFilm] = useState<filmType | null>();
+  const [film, setFilm] = useState<Ifilm | null>();
 
   useEffect(() => {
     setLoading(true);
@@ -90,7 +74,7 @@ export const Film = () => {
       )}
       {loading === false && showError === false ? (
         <Container maxWidth="xl">
-          {film === null ? (
+          {!film ? (
             <Alert severity="warning" variant="filled">
               No data
             </Alert>
