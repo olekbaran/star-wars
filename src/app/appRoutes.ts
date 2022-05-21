@@ -15,9 +15,17 @@ export const appRoutes = {
     name: 'People',
     slug: '/people',
   },
+  person: {
+    name: 'Person',
+    slug: '/people/:id',
+  },
   planets: {
     name: 'Planets',
     slug: '/planets',
+  },
+  planet: {
+    name: 'Planet',
+    slug: '/planets/:id',
   },
   species: {
     name: 'Species',

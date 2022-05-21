@@ -20,3 +20,8 @@ export const getPeople = async (page: string | null) => {
   const response: AxiosResponse<Iresponse> = await api.get('people');
   return response.data;
 };
+
+export const getPersonById = async (id: string) => {
+  const response: AxiosResponse<Iperson> = await api.get(`people/${id}`);
+  return response.data;
+};

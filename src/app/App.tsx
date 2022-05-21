@@ -9,9 +9,11 @@ import { MainLayout } from 'layouts';
 import {
   Home,
   Films,
-  People,
   Film,
+  People,
+  Person,
   Planets,
+  Planet,
   Species,
   Starships,
   Vehicles,
@@ -48,7 +50,9 @@ export const App = () => (
           <Route path={appRoutes.films.slug} element={<Films />} />
           <Route path={appRoutes.film.slug} element={<Film />} />
           <Route path={appRoutes.people.slug} element={<People />} />
+          <Route path={appRoutes.person.slug} element={<Person />} />
           <Route path={appRoutes.planets.slug} element={<Planets />} />
+          <Route path={appRoutes.planet.slug} element={<Planet />} />
           <Route path={appRoutes.species.slug} element={<Species />} />
           <Route path={appRoutes.starships.slug} element={<Starships />} />
           <Route path={appRoutes.vehicles.slug} element={<Vehicles />} />
