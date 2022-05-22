@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { AxiosError } from 'axios';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 
-import { getPlanetById } from 'services';
-import { Iplanet } from 'types';
+import { getStarshipById } from 'services';
+import { Istarship } from 'types';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -12,21 +12,21 @@ import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 import Alert from '@mui/material/Alert';
 
-export const Planet = () => {
+export const Starship = () => {
   const { id } = useParams();
 
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [planet, setPlanet] = useState<Iplanet | null>();
+  const [starship, setStarship] = useState<Istarship | null>();
 
   useEffect(() => {
     setLoading(true);
     setShowError(false);
-    const planetData = async () => {
+    const starshipData = async () => {
       try {
-        const res = await getPlanetById(id!);
-        setPlanet(res);
+        const res = await getStarshipById(id!);
+        setStarship(res);
       } catch (errors) {
         setShowError(true);
         const error = errors as Error | AxiosError;
@@ -36,7 +36,7 @@ export const Planet = () => {
       }
     };
 
-    planetData();
+    starshipData();
   }, []);
 
   const styles = {
@@ -54,11 +54,11 @@ export const Planet = () => {
       padding={8}
       sx={{
         justifyContent:
-          loading === false && showError === false && planet !== null
+          loading === false && showError === false && starship !== null
             ? 'flex-start'
             : 'center',
         alignItems:
-          loading === false && showError === false && planet !== null
+          loading === false && showError === false && starship !== null
             ? 'flex-start'
             : 'center',
       }}
@@ -74,7 +74,7 @@ export const Planet = () => {
       )}
       {loading === false && showError === false ? (
         <Container maxWidth="xl">
-          {!planet ? (
+          {!starship ? (
             <Alert severity="warning" variant="filled">
               No data
             </Alert>
@@ -82,34 +82,34 @@ export const Planet = () => {
             <>
               <HelmetProvider>
                 <Helmet>
-                  <title>{`${planet?.name} | Star Wars`}</title>
+                  <title>{`${starship?.name} | Star Wars`}</title>
                   <meta
                     property="og:title"
-                    content={`${planet?.name} | Star Wars`}
+                    content={`${starship?.name} | Star Wars`}
                   />
                   <meta
                     property="twitter:title"
-                    content={`${planet?.name} | Star Wars`}
+                    content={`${starship?.name} | Star Wars`}
                   />
                 </Helmet>
               </HelmetProvider>
               <Typography variant="h2" textAlign="left">
-                {planet?.name}
+                {starship?.name}
               </Typography>
               <Typography variant="h2" component="h1" mt={8} textAlign="left">
-                Climate: {planet?.climate}
+                Model: {starship?.model}
               </Typography>
               <Typography variant="h5" mt={8} textAlign="left">
-                Diameter: {planet?.diameter}
+                Manufacturer: {starship?.manufacturer}
               </Typography>
               <Typography mt={8} textAlign="left" maxWidth="60rem">
-                Surface Water: {planet?.surface_water}
+                Cost in credits: {starship?.cost_in_credits}
               </Typography>
               <Typography mt={8} gutterBottom textAlign="left">
-                Rotation period: {planet?.rotation_period} hours
+                Crew: {starship?.crew}
               </Typography>
               <Typography textAlign="left">
-                Orbital period: {planet?.orbital_period} days
+                Passengers: {starship?.passengers}
               </Typography>
             </>
           )}

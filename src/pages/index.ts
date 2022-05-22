@@ -6,6 +6,8 @@ export { Person } from './Person';
 export { Planets } from './Planets';
 export { Planet } from './Planet';
 export { Species } from './Species';
+export { SingleSpecies } from './SingleSpecies';
 export { Starships } from './Starships';
+export { Starship } from './Starship';
 export { Vehicles } from './Vehicles';
 export { Error404 } from './Error404';

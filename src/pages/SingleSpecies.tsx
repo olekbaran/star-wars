@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { AxiosError } from 'axios';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 
-import { getPlanetById } from 'services';
-import { Iplanet } from 'types';
+import { getSpeciesById } from 'services';
+import { Ispecies } from 'types';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -12,21 +12,21 @@ import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 import Alert from '@mui/material/Alert';
 
-export const Planet = () => {
+export const SingleSpecies = () => {
   const { id } = useParams();
 
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [planet, setPlanet] = useState<Iplanet | null>();
+  const [species, setSpecies] = useState<Ispecies | null>();
 
   useEffect(() => {
     setLoading(true);
     setShowError(false);
-    const planetData = async () => {
+    const speciesData = async () => {
       try {
-        const res = await getPlanetById(id!);
-        setPlanet(res);
+        const res = await getSpeciesById(id!);
+        setSpecies(res);
       } catch (errors) {
         setShowError(true);
         const error = errors as Error | AxiosError;
@@ -36,7 +36,7 @@ export const Planet = () => {
       }
     };
 
-    planetData();
+    speciesData();
   }, []);
 
   const styles = {
@@ -54,11 +54,11 @@ export const Planet = () => {
       padding={8}
       sx={{
         justifyContent:
-          loading === false && showError === false && planet !== null
+          loading === false && showError === false && species !== null
             ? 'flex-start'
             : 'center',
         alignItems:
-          loading === false && showError === false && planet !== null
+          loading === false && showError === false && species !== null
             ? 'flex-start'
             : 'center',
       }}
@@ -74,7 +74,7 @@ export const Planet = () => {
       )}
       {loading === false && showError === false ? (
         <Container maxWidth="xl">
-          {!planet ? (
+          {!species ? (
             <Alert severity="warning" variant="filled">
               No data
             </Alert>
@@ -82,34 +82,34 @@ export const Planet = () => {
             <>
               <HelmetProvider>
                 <Helmet>
-                  <title>{`${planet?.name} | Star Wars`}</title>
+                  <title>{`${species?.name} | Star Wars`}</title>
                   <meta
                     property="og:title"
-                    content={`${planet?.name} | Star Wars`}
+                    content={`${species?.name} | Star Wars`}
                   />
                   <meta
                     property="twitter:title"
-                    content={`${planet?.name} | Star Wars`}
+                    content={`${species?.name} | Star Wars`}
                   />
                 </Helmet>
               </HelmetProvider>
               <Typography variant="h2" textAlign="left">
-                {planet?.name}
+                {species?.name}
               </Typography>
               <Typography variant="h2" component="h1" mt={8} textAlign="left">
-                Climate: {planet?.climate}
+                Classification: {species?.classification}
               </Typography>
               <Typography variant="h5" mt={8} textAlign="left">
-                Diameter: {planet?.diameter}
+                Average lifespan in years: {species?.average_lifespan}
               </Typography>
               <Typography mt={8} textAlign="left" maxWidth="60rem">
-                Surface Water: {planet?.surface_water}
+                Average height: {species?.average_height} cm
               </Typography>
               <Typography mt={8} gutterBottom textAlign="left">
-                Rotation period: {planet?.rotation_period} hours
+                Language: {species?.language}
               </Typography>
               <Typography textAlign="left">
-                Orbital period: {planet?.orbital_period} days
+                Skin colors: {species?.skin_colors}
               </Typography>
             </>
           )}

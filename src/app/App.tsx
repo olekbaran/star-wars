@@ -15,7 +15,9 @@ import {
   Planets,
   Planet,
   Species,
+  SingleSpecies,
   Starships,
+  Starship,
   Vehicles,
   Error404,
 } from 'pages';
@@ -54,7 +56,12 @@ export const App = () => (
           <Route path={appRoutes.planets.slug} element={<Planets />} />
           <Route path={appRoutes.planet.slug} element={<Planet />} />
           <Route path={appRoutes.species.slug} element={<Species />} />
+          <Route
+            path={appRoutes.singleSpecies.slug}
+            element={<SingleSpecies />}
+          />
           <Route path={appRoutes.starships.slug} element={<Starships />} />
+          <Route path={appRoutes.starship.slug} element={<Starship />} />
           <Route path={appRoutes.vehicles.slug} element={<Vehicles />} />
           <Route path="*" element={<Error404 />} />
         </Routes>

@@ -31,9 +31,17 @@ export const appRoutes = {
     name: 'Species',
     slug: '/species',
   },
+  singleSpecies: {
+    name: 'Species',
+    slug: '/species/:id',
+  },
   starships: {
     name: 'Starships',
     slug: '/starships',
+  },
+  starship: {
+    name: 'Starship',
+    slug: '/starships/:id',
   },
   vehicles: {
     name: 'Vehicles',
