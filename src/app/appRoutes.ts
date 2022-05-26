@@ -47,4 +47,8 @@ export const appRoutes = {
     name: 'Vehicles',
     slug: '/vehicles',
   },
+  vehicle: {
+    name: 'Vehicle',
+    slug: '/vehicles/:id',
+  },
 };

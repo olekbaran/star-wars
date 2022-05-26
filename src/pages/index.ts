@@ -10,4 +10,5 @@ export { SingleSpecies } from './SingleSpecies';
 export { Starships } from './Starships';
 export { Starship } from './Starship';
 export { Vehicles } from './Vehicles';
+export { Vehicle } from './Vehicle';
 export { Error404 } from './Error404';
