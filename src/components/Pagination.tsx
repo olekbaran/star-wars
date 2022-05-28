@@ -41,6 +41,7 @@ export const Pagination: React.FunctionComponent<Ipagination> = ({
     <Box display="flex" justifyContent="center" gap={4} mt={8}>
       <Button
         variant="outlined"
+        aria-label="previous page"
         onClick={() => navigate(prevPage)}
         sx={{
           ...(!prevPage && {
@@ -51,11 +52,16 @@ export const Pagination: React.FunctionComponent<Ipagination> = ({
       >
         <ArrowLeft />
       </Button>
-      <Button variant="contained" onClick={scrollToTop}>
+      <Button
+        variant="contained"
+        aria-label="current page"
+        onClick={scrollToTop}
+      >
         {currentPage}
       </Button>
       <Button
         variant="outlined"
+        aria-label="next page"
         onClick={() => navigate(nextPage)}
         sx={{
           ...(!nextPage && {
