@@ -46,7 +46,7 @@ export const PersonCard: React.FunctionComponent<IpersonCard> = ({
         {person.name}
       </Typography>
       <Typography textAlign="left" fontSize="1.2rem" fontWeight={700}>
-        {person.birth_year}
+        Birth year: {person.birth_year}
       </Typography>
       <Typography textAlign="left">Hair color: {person.hair_color}</Typography>
       <Typography textAlign="left">Eye color: {person.eye_color}</Typography>

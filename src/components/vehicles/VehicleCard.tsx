@@ -49,7 +49,7 @@ export const VehicleCard: React.FunctionComponent<IvehicleCard> = ({
         Model: {vehicle.model}
       </Typography>
       <Typography textAlign="left">
-        Max atmosphering speed: {vehicle.max_atmosphering_speed}
+        Max atmosphering speed (km/h): {vehicle.max_atmosphering_speed}
       </Typography>
       <Typography textAlign="left">
         Consumables: {vehicle.consumables}

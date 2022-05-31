@@ -97,7 +97,7 @@ export const Person = () => {
                 {person?.name}
               </Typography>
               <Typography variant="h2" component="h1" mt={8} textAlign="left">
-                {person?.birth_year}
+                Birth year: {person?.birth_year}
               </Typography>
               <Typography variant="h5" mt={8} textAlign="left">
                 Gender: {person?.gender}
@@ -106,9 +106,11 @@ export const Person = () => {
                 Skin color: {person?.skin_color}
               </Typography>
               <Typography mt={8} gutterBottom textAlign="left">
-                Height: {person?.height} cm
+                Height (cm): {person?.height}
               </Typography>
-              <Typography textAlign="left">Mass: {person?.mass} kg</Typography>
+              <Typography textAlign="left">
+                Mass (kg): {person?.mass}
+              </Typography>
             </>
           )}
         </Container>

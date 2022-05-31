@@ -49,7 +49,7 @@ export const StarshipCard: React.FunctionComponent<IstarshipCard> = ({
         Model: {starship.model}
       </Typography>
       <Typography textAlign="left">
-        Max atmosphering speed: {starship.max_atmosphering_speed}
+        Max atmosphering speed (km/h): {starship.max_atmosphering_speed}
       </Typography>
       <Typography textAlign="left">
         Consumables: {starship.consumables}

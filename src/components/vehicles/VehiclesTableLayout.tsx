@@ -56,7 +56,7 @@ export const VehiclesTableLayout: React.FunctionComponent<ItableLayout> = ({
               fontSize="1.2rem"
               color="secondary.main"
             >
-              Max atmosphering speed
+              Max atmosphering speed (km/h)
             </Typography>
           </TableCell>
           <TableCell>

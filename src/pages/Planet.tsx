@@ -100,16 +100,16 @@ export const Planet = () => {
                 Climate: {planet?.climate}
               </Typography>
               <Typography variant="h5" mt={8} textAlign="left">
-                Diameter: {planet?.diameter}
+                Diameter (km): {planet?.diameter}
               </Typography>
               <Typography mt={8} textAlign="left" maxWidth="60rem">
-                Surface Water: {planet?.surface_water}
+                Surface Water (%): {planet?.surface_water}
               </Typography>
               <Typography mt={8} gutterBottom textAlign="left">
-                Rotation period: {planet?.rotation_period} hours
+                Rotation period (hours): {planet?.rotation_period}
               </Typography>
               <Typography textAlign="left">
-                Orbital period: {planet?.orbital_period} days
+                Orbital period (days): {planet?.orbital_period}
               </Typography>
             </>
           )}

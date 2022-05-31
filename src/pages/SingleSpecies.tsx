@@ -100,10 +100,10 @@ export const SingleSpecies = () => {
                 Classification: {species?.classification}
               </Typography>
               <Typography variant="h5" mt={8} textAlign="left">
-                Average lifespan in years: {species?.average_lifespan}
+                Average lifespan (years): {species?.average_lifespan}
               </Typography>
               <Typography mt={8} textAlign="left" maxWidth="60rem">
-                Average height: {species?.average_height} cm
+                Average height (cm): {species?.average_height}
               </Typography>
               <Typography mt={8} gutterBottom textAlign="left">
                 Language: {species?.language}
